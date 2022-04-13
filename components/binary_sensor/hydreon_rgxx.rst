@@ -36,7 +36,7 @@ For this sensor to work, a :doc:`/components/sensor/hydreon_rgxx` must be set up
 Configuration variables:
 ------------------------
 
-- **hydreon_rgxx_id** (*Optional*, :ref:`config-id`): The ID of the Hydreon Rain Sensor display.
+- **hydreon_rgxx_id** (*Optional*, :ref:`config-id`): The ID of the Hydreon Rain Sensor.
 
 - **too_cold** (*Optional*): `true` if the sensor reports being too cold. Hydreon only mentions this feature for the RG-9.
 

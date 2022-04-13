@@ -38,6 +38,9 @@ required to be set up in your configuration for this sensor to work.
       - platform: hydreon_rgxx
         too_cold:
           name: "too cold"
+		button:
+			- platform: hydreon_rgxx
+			  name: "Rain sensor restart"
 
 .. code-block:: yaml
 
