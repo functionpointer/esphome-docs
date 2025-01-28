@@ -13,24 +13,6 @@ This component, the Wi-Fi component and the Ethernet component may **not** be us
 
 .. code-block:: yaml
 
-  rp2040:
-    board: rpipicow
-    framework:
-      platform_version: https://github.com/maxgerhardt/platform-raspberrypi.git
-      source: https://github.com/earlephilhower/arduino-pico/releases/download/3.1.1/rp2040-3.1.1.zip
-      version: 3.1.1
-
-  uart:
-    - id: uart_ppp
-      tx_pin: GPIO4
-      rx_pin: GPIO5
-      baud_rate: 115200
-
-  pppos:
-    id: ppp0
-    uart_id: uart_pppp
-
-.. code-block:: yaml
     rp2040:
       board: rpipicow
       framework:
@@ -38,14 +20,15 @@ This component, the Wi-Fi component and the Ethernet component may **not** be us
         source: https://github.com/earlephilhower/arduino-pico/releases/download/3.1.1/rp2040-3.1.1.zip
         version: 3.1.1
 
+    uart:
+      - id: uart_ppp
+        tx_pin: GPIO4
+        rx_pin: GPIO5
+        baud_rate: 115200
 
     pppos:
       id: ppp0
-      uart_type: USB_CDC
-
-    logger:
-      level: DEBUG
-      baud_rate: 0 # disables logging over uart, freeing it for pppos
+      uart_id: uart_pppp
 
 Compiling
 ---------
@@ -82,16 +65,22 @@ This config works both on the Pico and on the Pico W.
 
 .. code-block:: yaml
 
-  rp2040:
-    board: rpipicow
-    framework:
-      platform_version: https://github.com/maxgerhardt/platform-raspberrypi.git
-      source: https://github.com/earlephilhower/arduino-pico/releases/download/3.1.1/rp2040-3.1.1.zip
-      version: 3.1.1
+    rp2040:
+      board: rpipicow
+      framework:
+        platform_version: https://github.com/maxgerhardt/platform-raspberrypi.git
+        source: https://github.com/earlephilhower/arduino-pico/releases/download/3.1.1/rp2040-3.1.1.zip
+        version: 3.1.1
 
-  pppos:
-    id: ppp0
-    uart_type: USB_CDC
+    pppos:
+      id: ppp0
+      uart_type: USB_CDC
+
+    # may or may not be needed
+    logger:
+      level: DEBUG
+      baud_rate: 0 # disables logging over uart, freeing it for pppos
+
 
 The other endpoint
 ------------------
