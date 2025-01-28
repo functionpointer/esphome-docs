@@ -30,6 +30,34 @@ This component, the Wi-Fi component and the Ethernet component may **not** be us
     id: ppp0
     uart_id: uart_pppp
 
+.. code-block:: yaml
+    rp2040:
+      board: rpipicow
+      framework:
+        platform_version: https://github.com/maxgerhardt/platform-raspberrypi.git
+        source: https://github.com/earlephilhower/arduino-pico/releases/download/3.1.1/rp2040-3.1.1.zip
+        version: 3.1.1
+
+
+    pppos:
+      id: ppp0
+      uart_type: USB_CDC
+
+    logger:
+      level: DEBUG
+      baud_rate: 0 # disables logging over uart, freeing it for pppos
+
+Compiling
+---------
+
+Due to incomplete implementation it is currently needed to compile in quite a strange way.
+1. Compile in the normal way: ``esphome compile <config>.yaml``
+2. go to `~/.platformio/packages/framework-arduinopico/pico-sdk/lib/lwip/src`
+3. copy `core` and `netif` into your project folder `<folder-of-your-config-yaml>/.esphome/build/lampe/src`
+4. compile again
+5. upload it
+
+If you don't do this the code will hardfault and therefore not do anything.
 
 Configuration variables:
 ------------------------
@@ -77,7 +105,7 @@ On Debian (and derivatives like Raspbian) this can be accomplished like this:
 
   ~# apt install ppp
   ~# sysctl net.ipv4.ip_forward=1
-  ~# pppd /dev/ttyUSB0 115200 lock nodetach noauth debug nocrtscts 10.10.8.1:10.10.8.2
+  ~# pppd /dev/ttyUSB0 115200 nolock nodetach noauth debug nocrtscts 10.10.8.1:10.10.8.2
 
 
 This creates a new network interface with the IP-Address ``10.10.8.1``, and gives the ESPHome device the Address ``10.10.8.2``.
