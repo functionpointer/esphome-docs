@@ -28,7 +28,7 @@ This component, the Wi-Fi component and the Ethernet component may **not** be us
 
     pppos:
       id: ppp0
-      uart_id: uart_pppp
+      uart_id: uart_ppp
 
 Compiling
 ---------
