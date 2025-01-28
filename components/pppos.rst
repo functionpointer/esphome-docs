@@ -92,9 +92,9 @@ On Debian (and derivatives like Raspbian) this can be accomplished like this:
 
 .. code-block:: bash
 
-  ~# apt install ppp
-  ~# sysctl net.ipv4.ip_forward=1
-  ~# pppd /dev/ttyUSB0 115200 nolock nodetach noauth debug nocrtscts 10.10.8.1:10.10.8.2
+    ~# apt install ppp
+    ~# sysctl net.ipv4.ip_forward=1
+    ~# pppd /dev/ttyUSB0 115200 nolock nodetach noauth debug nocrtscts 10.10.8.1:10.10.8.2
 
 
 This creates a new network interface with the IP-Address ``10.10.8.1``, and gives the ESPHome device the Address ``10.10.8.2``.
