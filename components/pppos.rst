@@ -34,13 +34,14 @@ Compiling
 ---------
 
 Due to incomplete implementation it is currently needed to compile in quite a strange way.
-1. Compile in the normal way: ``esphome compile <config>.yaml``
-2. go to `~/.platformio/packages/framework-arduinopico/pico-sdk/lib/lwip/src`
-3. copy `core` and `netif` into your project folder `<folder-of-your-config-yaml>/.esphome/build/lampe/src`
-4. compile again
-5. upload it
 
-If you don't do this the code will hardfault and therefore not do anything.
+#. Compile in the normal way: ``esphome compile <config>.yaml``
+#. go to ``~/.platformio/packages/framework-arduinopico/pico-sdk/lib/lwip/src``
+#. copy ``core`` and ``netif`` into your project folder ``<folder-of-your-config-yaml>/.esphome/build/lampe/src``
+#. compile again
+#. upload it
+
+**If you don't do this the code will hardfault and therefore not do anything.**
 
 Configuration variables:
 ------------------------
